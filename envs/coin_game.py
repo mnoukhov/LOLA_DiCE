@@ -5,7 +5,6 @@ import gym
 import numpy as np
 
 from gym.spaces import Discrete, Tuple
-from gym.spaces import prng
 
 
 class CoinGameVec(gym.Env):

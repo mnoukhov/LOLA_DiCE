@@ -1,18 +1,17 @@
 import gym
 import numpy as np
 
-from gym.spaces import prng
-
 
 class OneHot(gym.Space):
     """
     One-hot space. Used as the observation space.
     """
-    def __init__(self, n):
+    def __init__(self, n, seed=None):
         self.n = n
+        self.seed(seed)
 
     def sample(self):
-        return prng.np_random.multinomial(1, [1. / self.n] * self.n)
+        return self.np_random.multinomial(1, [1. / self.n] * self.n)
 
     def contains(self, x):
         return isinstance(x, np.ndarray) and \
